@@ -1,0 +1,87 @@
+<div class="container">
+
+  <!-- section title -->
+  <h2 class="section-title wow fadeInUp">Get In Touch</h2>
+
+  <div class="spacer-60"></div>
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <!-- contact info -->
+      <div class="contact-info">
+        <h3 class="wow fadeInUp">Let's talk about everything!</h3>
+        <p class="wow fadeInUp">Don't like forms? Send me an <a href="mailto:info@singhmoversandpackers.com">email</a>. 👋</p>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <!-- Contact Form -->
+      <form [formGroup]="contactForm" (ngSubmit)="submit()" id="contactForm" class="contact-form mt-6" method="post" action="javascript:">
+
+        <div class="messages"></div>
+
+        <div class="row">
+          <div class="column col-md-6">
+            <!-- Name input -->
+            <div class="form-group">
+              <input formControlName="inputName" type="text" class="form-control" name="inputName" id="inputName" placeholder="Your name" required="required" data-error="Name is required.">
+              <div *ngIf="f?.inputName?.touched && f?.inputName?.invalid" class="alert alert-danger">
+                <div *ngIf="f?.inputName?.errors.required">Name is required.</div>
+              </div>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+
+          <div class="column col-md-6">
+            <!-- Email input -->
+            <div class="form-group">
+              <input formControlName="email"  type="email" class="form-control" id="email" name="email" placeholder="Email address" required="required" data-error="Email is required.">
+              <div *ngIf="f?.email?.touched && f?.email?.invalid" class="alert alert-danger">
+                <div *ngIf="f?.email?.errors.required">email is required.</div>
+                <div *ngIf="f?.email?.errors.email">email is not formatted.</div>
+            </div>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+
+          <div class="column col-md-12">
+            <!-- Subject input -->
+            <div class="form-group">
+              <input formControlName="subject"  type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" data-error="Subject is required.">
+              <div *ngIf="f?.subject?.touched && f?.subject?.invalid" class="alert alert-danger">
+                <div *ngIf="f?.subject?.errors.required">Subject is required.</div>
+              </div>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+
+          <div class="column col-md-12">
+            <!-- Message textarea -->
+            <div class="form-group">
+              <textarea formControlName="message" name="message" id="message" class="form-control" rows="3" placeholder="Message" required="required" data-error="Message is required."></textarea>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Send Message</button><!-- Send Button -->
+
+      </form>
+      <!-- Contact Form end -->
+
+      <div class="column col-md-12">
+        <div>
+          <div class="help-block with-errors"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <br><br>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.457109291748!2d150.87172681501116!3d-33.6712261807113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129e65427c649f%3A0x116cc7278fc1c467!2s43%20Denise%20Cres%2C%20Riverstone%20NSW%202765!5e0!3m2!1sen!2sau!4v1653970799688!5m2!1sen!2sau" width="1070" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <br>
+    <iframe src="https://calendar.google.com/calendar/embed?src=singhmoverpackers%40gmail.com&ctz=Australia%2FSydney" style="border: 0" width="1070" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+
+
+

@@ -1,0 +1,62 @@
+<div class="container">
+  <!-- intro -->
+  <div class="intro">
+    
+    <!-- info -->
+    <h1 class="mb-2 mt-2">Singh Movers & Packers</h1>
+    <br>
+    <span>We are
+      <span class="text-rotating morphext">
+        <span *ngIf="bounce === 1"><span @bounce>inter-city removalist</span></span>
+        <span *ngIf="bounce === 2"><span @bounce>inter-state removalist</span></span>
+        <span *ngIf="bounce === 3"><span @bounce>commercial removalist</span></span>
+      </span>
+    </span>
+
+    <!-- social icons -->
+    <ul class="social-icons light list-inline mb-0 mt-4">
+      <li class="list-inline-item"><a href="https://www.instagram.com/singh.movers.and.packers/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+      <li class="list-inline-item"><a href="https://www.facebook.com/SinghMoversAndPackers" target="_blank"><i class="fab fa-facebook"></i></a></li>
+    </ul>
+
+    <!-- buttons -->
+    <div class="mt-4">
+      <a href="javascript:" class="btn btn-default" (click)="scrollTo('contact')">Contact us</a>
+    </div>
+
+    <div *ngIf="!auth.isAuthenticated" class="mt-4">
+      <a href="javascript:" class="btn btn-primary"  (click)="openDialogTwo()">Log in</a>
+    </div>
+
+    <div *ngIf="!auth.isAuthenticated" class="mt-4">
+      <button class="btn btn-primary"  (click)="openDialog()">Sign Up</button>
+    </div>
+
+
+  </div>
+
+  <!-- scroll down mouse wheel -->
+  <div class="scroll-down" [ngClass]="{'light': themeType === 'light'}">
+    <a href="javascript:" class="mouse-wrapper" (click)="scrollTo('about')">
+      <span>Scroll Down</span>
+      <span class="mouse">
+        <span class="wheel"></span>
+      </span>
+    </a>
+  </div>
+  
+
+  
+
+  
+
+  <!-- parallax layers -->
+  <div id="scene" class="parallax" data-relative-input="true">
+      <img src="assets/images/landing/cover-image.jpeg" alt="singh" class="image_full" />
+
+  </div>
+
+  
+
+</div>
+
