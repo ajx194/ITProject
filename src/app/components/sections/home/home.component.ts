@@ -75,14 +75,26 @@ export class HomeComponent implements OnInit, AfterContentInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result:`, result);
       localStorage.setItem('isAdmin', result.admin);
+      localStorage.setItem('isAuthenticated', result.authenticated);
       this.auth.isAdmin = result.admin;
-      this.auth.isAuthenticated = result.authenticated;
+      this.auth.isAuthenticated = result.authenticated; 
       
       localStorage.getItem('isAdmin');
+      localStorage.getItem('isAuthenticated');
       console.log(this.auth.isAdmin);
     });
   }
+
+  onClickLogOut(){
+    this.auth.isAuthenticated = false;
+    localStorage.removeItem('isAdmin');
+    localStorage.removeItem('isAuthenticated');
+    this.auth.isAdmin = false;
+  }
+
 }
+
+  
 
 
 
@@ -110,7 +122,7 @@ export class DialogContentDialog {
       console.log(this.signupForm.value);
       const signupResponse = this.backend.postSignUpSubmission(this.signupForm.value);
       console.log(signupResponse);
-      this.dialogRef.close(signupResponse);
+      this.dialogRef.close(signupResponse); 
     }
    }
 }

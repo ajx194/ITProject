@@ -20,7 +20,9 @@ import { BackendService } from './backend.service';
 import { UserDetailsComponent } from './admin/user-details/user-details.component';
 import { QuoteRequestsComponent } from './admin/quote-requests/quote-requests.component';
 import { EnquiryMessageComponent } from './admin/enquiry-message/enquiry-message.component';
-import { MatTableModule } from '@angular/material/table' 
+import { MatTableModule } from '@angular/material/table';
+import { UserComponent } from './user/user.component' 
+
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { MatTableModule } from '@angular/material/table'
     UserDetailsComponent,
     QuoteRequestsComponent,
     EnquiryMessageComponent,
+    UserComponent,
   ],
   exports: [
     HomeComponent,
@@ -50,7 +53,8 @@ import { MatTableModule } from '@angular/material/table'
     NgbModule,
     EnquiryMessageComponent,
     UserDetailsComponent,
-    QuoteRequestsComponent
+    QuoteRequestsComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +65,8 @@ import { MatTableModule } from '@angular/material/table'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+
   ],
   providers: [
     BackendService
