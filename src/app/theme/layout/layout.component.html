@@ -33,52 +33,58 @@
               <span *ngIf="this.themeConfig.theme !== 'collapsed'">Home</span>
             </a>
           </li>
-          <li class="nav-item" [ngClass]="{'active': currentSection === 'about'}" (click)="scrollTo('about')" >
+          <li *ngIf="auth.isAuthenticated && !auth.isAdmin" class="nav-item" [ngClass]="{'active': currentSection === 'user'}" (click)="scrollTo('user')">
+            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'user'}">
+              <i *ngIf="this.themeConfig.theme !== 'horizontal'" class="icon-user"></i>
+              <span *ngIf="this.themeConfig.theme !== 'collapsed'">Calendar</span>
+            </a>
+          </li>
+          <li *ngIf="!auth.isAdmin" class="nav-item" [ngClass]="{'active': currentSection === 'about'}" (click)="scrollTo('about')" >
             <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'about'}">
               <i *ngIf="this.themeConfig.theme !== 'horizontal'" class="icon-user-following"></i>
               <span *ngIf="this.themeConfig.theme !== 'collapsed'">About</span>
             </a>
           </li>
-          <li class="nav-item" [ngClass]="{'active': currentSection === 'services'}" (click)="scrollTo('services')">
+          <li *ngIf="!auth.isAdmin" class="nav-item" [ngClass]="{'active': currentSection === 'services'}" (click)="scrollTo('services')">
             <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'services'}">
               <i *ngIf="this.themeConfig.theme !== 'horizontal'" class="icon-briefcase"></i>
               <span *ngIf="this.themeConfig.theme !== 'collapsed'">Services</span>
             </a>
           </li>
-          <li class="nav-item" [ngClass]="{'active': currentSection === 'gallery'}" (click)="scrollTo('gallery')">
+          <li *ngIf="!auth.isAdmin" class="nav-item" [ngClass]="{'active': currentSection === 'gallery'}" (click)="scrollTo('gallery')">
             <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'gallery'}">
               <i *ngIf="this.themeConfig.theme !== 'horizontal'" class="icon-graduation"></i>
               <span *ngIf="this.themeConfig.theme !== 'collapsed'">Gallery</span>
             </a>
           </li>
-          <li [ngClass]="{'active': currentSection === 'quote'}" (click)="scrollTo('quote')">
+          <li *ngIf="!auth.isAdmin" [ngClass]="{'active': currentSection === 'quote'}" (click)="scrollTo('quote')">
             <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'quote'}"><i class="icon-credit-card"></i>
               <span *ngIf="this.themeConfig.theme !== 'collapsed'">Quote</span>
             </a>
           </li>
-          <li [ngClass]="{'active': currentSection === 'testimonials'}" (click)="scrollTo('testimonials')">
+          <li *ngIf="!auth.isAdmin" [ngClass]="{'active': currentSection === 'testimonials'}" (click)="scrollTo('testimonials')">
             <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'testimonials'}"><i class="icon-user-follow"></i>
               <span *ngIf="this.themeConfig.theme !== 'collapsed'">Testimonials</span>
             </a>
           </li>
-          <li [ngClass]="{'active': currentSection === 'contact'}" (click)="scrollTo('contact')">
-            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'contact'}"><i class="icon-bubbles"></i>
-              <span *ngIf="this.themeConfig.theme !== 'collapsed'">Contact</span>
-            </a>
-          </li>
-          <li *ngIf="isAuth" [ngClass]="{'active': currentSection === 'enquiry'}" (click)="scrollTo('enquiry')">
-            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'enquiry'}"><i class="icon-home"></i>
+          <li *ngIf="auth.isAdmin" [ngClass]="{'active': currentSection === 'enquiry'}" (click)="scrollTo('enquiry')">
+            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'enquiry'}"><i class="icon-book-open"></i>
               <span *ngIf="this.themeConfig.theme !== 'collapsed'">Enquiry</span>
             </a>
           </li>
-          <li *ngIf="auth.isAdmin"[ngClass]="{'active': currentSection === 'quote-requests'}" (click)="scrollTo('quote-requests')">
-            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'quote-requests'}"><i class="icon-home"></i>
-              <span *ngIf="this.themeConfig.theme !== 'collapsed'">Quote Requests</span>
+          <li *ngIf="auth.isAdmin" [ngClass]="{'active': currentSection === 'quote-requests'}" (click)="scrollTo('quote-requests')">
+            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'quote-requests'}"><i class="icon-note"></i>
+              <span *ngIf="this.themeConfig.theme !== 'collapsed'">Requests</span>
             </a>
           </li>
-          <li *ngIf="auth.isAdmin"[ngClass]="{'active': currentSection === 'user-details'}" (click)="scrollTo('user-details')">
-            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'user-details'}"><i class="icon-home"></i>
-              <span *ngIf="this.themeConfig.theme !== 'collapsed'">User Details</span>
+          <li *ngIf="auth.isAdmin" [ngClass]="{'active': currentSection === 'user-details'}" (click)="scrollTo('user-details')">
+            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'user-details'}"><i class="icon-people"></i>
+              <span *ngIf="this.themeConfig.theme !== 'collapsed'">Users</span>
+            </a>
+          </li>
+          <li *ngIf="!auth.isAdmin" [ngClass]="{'active': currentSection === 'contact'}" (click)="scrollTo('contact')">
+            <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'contact'}"><i class="icon-bubbles"></i>
+              <span *ngIf="this.themeConfig.theme !== 'collapsed'">Contact</span>
             </a>
           </li>
         </ul>
@@ -104,49 +110,54 @@
           <span *ngIf="this.themeConfig.theme !== 'collapsed'">Home</span>
         </a>
       </li>
-      <li [ngClass]="{'active': currentSection === 'about'}" (click)="scrollTo('about')" >
+      <li *ngIf="auth.isAuthenticated && !auth.isAdmin" class="nav-item" [ngClass]="{'active': currentSection === 'user'}" (click)="scrollTo('user')">
+        <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'user'}"><i class="icon-user"></i>
+          <span *ngIf="this.themeConfig.theme !== 'collapsed'">Calendar</span>
+        </a>
+      </li>
+      <li *ngIf="!auth.isAdmin" [ngClass]="{'active': currentSection === 'about'}" (click)="scrollTo('about')" >
         <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'about'}"><i class="icon-user-following"></i>
           <span *ngIf="this.themeConfig.theme !== 'collapsed'">About</span>
         </a>
       </li>
-      <li [ngClass]="{'active': currentSection === 'services'}" (click)="scrollTo('services')">
+      <li *ngIf="!auth.isAdmin" [ngClass]="{'active': currentSection === 'services'}" (click)="scrollTo('services')">
         <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'services'}"><i class="icon-briefcase"></i>
           <span *ngIf="this.themeConfig.theme !== 'collapsed'">Services</span>
         </a>
       </li>
-      <li [ngClass]="{'active': currentSection === 'gallery'}" (click)="scrollTo('gallery')">
+      <li *ngIf="!auth.isAdmin" [ngClass]="{'active': currentSection === 'gallery'}" (click)="scrollTo('gallery')">
         <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'gallery'}"><i class="icon-picture"></i>
           <span *ngIf="this.themeConfig.theme !== 'collapsed'">Gallery</span>
         </a>
       </li>
-      <li [ngClass]="{'active': currentSection === 'quote'}" (click)="scrollTo('quote')">
+      <li *ngIf="!auth.isAdmin" [ngClass]="{'active': currentSection === 'quote'}" (click)="scrollTo('quote')">
         <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'quote'}"><i class="icon-credit-card"></i>
           <span *ngIf="this.themeConfig.theme !== 'collapsed'">Quote</span>
         </a>
       </li>
-      <li [ngClass]="{'active': currentSection === 'testimonials'}" (click)="scrollTo('testimonials')">
+      <li *ngIf="!auth.isAdmin" [ngClass]="{'active': currentSection === 'testimonials'}" (click)="scrollTo('testimonials')">
         <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'testimonials'}"><i class="icon-user-follow"></i>
           <span *ngIf="this.themeConfig.theme !== 'collapsed'">Testimonials</span>
         </a>
       </li>
-      <li [ngClass]="{'active': currentSection === 'contact'}" (click)="scrollTo('contact')">
-        <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'contact'}"><i class="icon-bubbles"></i>
-          <span *ngIf="this.themeConfig.theme !== 'collapsed'">Contact</span>
-        </a>
-      </li>
       <li *ngIf="auth.isAdmin" [ngClass]="{'active': currentSection === 'enquiry'}" (click)="scrollTo('enquiry')">
-        <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'enquiry'}"><i class="icon-home"></i>
+        <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'enquiry'}"><i class="icon-book-open"></i>
           <span *ngIf="this.themeConfig.theme !== 'collapsed'">Enquiry</span>
         </a>
       </li>
       <li *ngIf="auth.isAdmin" [ngClass]="{'active': currentSection === 'quote-requests'}" (click)="scrollTo('quote-requests')">
-        <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'quote-requests'}"><i class="icon-home"></i>
-          <span *ngIf="this.themeConfig.theme !== 'collapsed'">Quote Requests</span>
+        <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'quote-requests'}"><i class="icon-note"></i>
+          <span *ngIf="this.themeConfig.theme !== 'collapsed'">Requests</span>
         </a>
       </li>
       <li *ngIf="auth.isAdmin" [ngClass]="{'active': currentSection === 'user-details'}" (click)="scrollTo('user-details')">
-        <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'user-details'}"><i class="icon-home"></i>
-          <span *ngIf="this.themeConfig.theme !== 'collapsed'">User Details</span>
+        <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'user-details'}"><i class="icon-people"></i>
+          <span *ngIf="this.themeConfig.theme !== 'collapsed'">Users</span>
+        </a>
+      </li>
+      <li *ngIf="!auth.isAdmin" [ngClass]="{'active': currentSection === 'contact'}" (click)="scrollTo('contact')">
+        <a href="javascript:" class="nav-link" [ngClass]="{'active': currentSection === 'contact'}"><i class="icon-bubbles"></i>
+          <span *ngIf="this.themeConfig.theme !== 'collapsed'">Contact</span>
         </a>
       </li>
     </ul>

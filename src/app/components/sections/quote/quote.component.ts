@@ -11,6 +11,8 @@ export class QuoteComponent implements OnInit {
   removals = ['Local resident removal', 'Inter-city removal', 'Inter-state removal'];
   sizes= ['Few things', 'Apartment', 'House','Business','Warehouse','Large equipment'];
 
+  costHour: number;
+
   quoteForm: FormGroup = new FormGroup({
     'firstName' : new FormControl(null, [Validators.required]) ,
     'lastName' : new FormControl(null, [Validators.required]) ,
@@ -51,5 +53,10 @@ export class QuoteComponent implements OnInit {
   // resetValue(){
   //     this.quoteForm.reset({firstName: '', lastName: '', email: '', phone: '', removal: '', address: '', suburb: '', post: '', date:'', size: '', destAddress: '', destSuburb: '', destPost: '', destDate: ''});
   // }
+
+  onCost(event: any){
+    // this.costHour= this.initialPrice + this.hourRate*(this.noHour);
+     this.costHour = event.target.value* 110 +100;
+   }
 
 }

@@ -49,13 +49,10 @@ export class LayoutComponent implements OnInit {
   public desktopLogo = 'assets/images/landing/singh-packers-logo.png';
 
   public collapsedCard: string = 'collapsed';
-  public isAuth: boolean = false;
 
   constructor(public scrollSpy: ScrollSpyService, private location: Location, public auth: AuthService) {
     this.themeConfig = Config.config;
     this.windowWidth = window.innerWidth;
-    console.log(localStorage.getItem('isAdmin'));
-    this.isAuth = localStorage.getItem('isAdmin') as unknown as boolean;
   }
 
   ngOnInit(): void {
