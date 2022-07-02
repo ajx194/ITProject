@@ -19,7 +19,7 @@ export class UserDetailsComponent{
   displayedColumns: string[] = ['email', 'password', 'firstName', 'lastName'];
 
   dataSource: MatTableDataSource<PeriodicElement>;
-  
+
   constructor(private backend: BackendService) {
   
     this.backend.getSignUpDetails()
